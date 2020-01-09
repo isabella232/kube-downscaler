@@ -128,7 +128,7 @@ def autoscale_resource(
                 ) and not helper.matches_time_spec(now, downtime)
 
             if resource.kind == "CronJob":
-                suspended = resource.obj['spec']['suspend']
+                suspended = resource.obj["spec"]["suspend"]
                 replicas = 0 if suspended else 1
                 logger.debug(
                     "%s %s/%s is %s (original: %s, uptime: %s)",
@@ -161,8 +161,8 @@ def autoscale_resource(
             ):
 
                 if resource.kind == "CronJob":
-                    resource.obj['spec']['suspend'] = False
-                    resource.obj['spec']['startingDeadlineSeconds'] = 0
+                    resource.obj["spec"]["suspend"] = False
+                    resource.obj["spec"]["startingDeadlineSeconds"] = 0
                     logger.info(
                         "Unsuspending %s %s/%s (uptime: %s, downtime: %s)",
                         resource.kind,
@@ -207,7 +207,7 @@ def autoscale_resource(
                 else:
 
                     if resource.kind == "CronJob":
-                        resource.obj['spec']['suspend'] = True
+                        resource.obj["spec"]["suspend"] = True
                         logger.info(
                             "Suspending %s %s/%s (uptime: %s, downtime: %s)",
                             resource.kind,
